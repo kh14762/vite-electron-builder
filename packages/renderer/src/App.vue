@@ -1,11 +1,3 @@
-<script lang="ts" setup>
-import ReactiveCounter from '/@/components/ReactiveCounter.vue';
-import ReactiveHash from '/@/components/ReactiveHash.vue';
-import ElectronVersions from '/@/components/ElectronVersions.vue';
-
-const APP_VERSION = import.meta.env.VITE_APP_VERSION;
-</script>
-
 <template>
   <img
     alt="Vue logo"
@@ -41,6 +33,11 @@ const APP_VERSION = import.meta.env.VITE_APP_VERSION;
   </fieldset>
 
   <fieldset>
+    <legend>Test Dark Mode Toggle</legend>
+    <dark-toggle />
+  </fieldset>
+
+  <fieldset>
     <legend>Environment</legend>
     <electron-versions />
   </fieldset>
@@ -50,6 +47,15 @@ const APP_VERSION = import.meta.env.VITE_APP_VERSION;
     <code>packages/renderer/src/App.vue</code> to test hot module replacement.
   </p>
 </template>
+
+<script lang="ts" setup>
+import ReactiveCounter from '/@/components/ReactiveCounter.vue';
+import ReactiveHash from '/@/components/ReactiveHash.vue';
+import ElectronVersions from '/@/components/ElectronVersions.vue';
+import DarkToggle from '/@/components/DarkToggle.vue';
+
+const APP_VERSION = import.meta.env.VITE_APP_VERSION;
+</script>
 
 <style>
 #app {

@@ -1,4 +1,4 @@
-import {app, BrowserWindow} from 'electron';
+import {app, BrowserWindow, ipcMain, nativeTheme} from 'electron';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
@@ -52,6 +52,19 @@ async function createWindow() {
       fileURLToPath(new URL('./../../renderer/dist/index.html', import.meta.url)),
     );
   }
+
+  ipcMain.handle('dark-mode:toggle', () => {
+    if (nativeTheme.shouldUseDarkColors) {
+      nativeTheme.themeSource = 'light';
+    } else {
+      nativeTheme.themeSource = 'dark';
+    }
+    return nativeTheme.shouldUseDarkColors;
+  });
+
+  ipcMain.handle('dark-mode:system', () => {
+    nativeTheme.themeSource = 'system';
+  });
 
   return browserWindow;
 }

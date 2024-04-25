@@ -4,4 +4,7 @@
 
 import {sha256sum} from './nodeCrypto';
 import {versions} from './versions';
-export {sha256sum, versions};
+import {toggle} from './darkMode';
+import {system} from './darkMode';
+
+export {sha256sum, versions, toggle, system};
